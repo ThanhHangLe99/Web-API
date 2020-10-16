@@ -1,16 +1,14 @@
-﻿//using BLL.Interfaces;
-using DAL.Helper;
+﻿using DAL.Helper;
 using DAL.Helper.Interfaces;
 using DAL.Interfaces;
 using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DAL
 {
-    public class CategoryRepository : ICategoryRepository
+    public partial class CategoryRepository : ICategoryRepository
     {
         private IDatabaseHelper _dbHelper;
         public CategoryRepository(IDatabaseHelper dbHelper)
@@ -33,10 +31,6 @@ namespace DAL
                 throw ex;
             }
         }
-
-        List<CategoryModel> ICategoryRepository.GetData()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
+
