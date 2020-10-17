@@ -26,6 +26,11 @@ namespace BLL
         {
             return _res.GetDataAll();
         }
+
+        public List<ProductModel> GetDataNew()
+        {
+            return _res.GetDataNew();
+        }
         public List<ProductModel> Search(int pageIndex, int pageSize, out long total, string category_id)
         {
             return _res.Search(pageIndex, pageSize, out total, category_id);

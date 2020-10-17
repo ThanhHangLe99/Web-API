@@ -74,6 +74,22 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public List<ProductModel> GetDataNew()
+        {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_new");
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<ProductModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<ProductModel> Search(int pageIndex, int pageSize, out long total, string category_id)
         {
             string msgError = "";
