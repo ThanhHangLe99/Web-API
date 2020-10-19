@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL
+namespace DAL.Interfaces
 {
     public interface IUserRepository
     {
@@ -15,4 +15,3 @@ namespace DAL
         List<UserModel> Search(int pageIndex, int pageSize, out long total, string hoten, string taikhoan);
     }
 }
-

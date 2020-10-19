@@ -1,5 +1,4 @@
 ﻿using BLL.Interfaces;
-using DAL;
 using DAL.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -69,6 +68,4 @@ namespace BLL
             return _res.Search(pageIndex, pageSize, out total, hoten, taikhoan);
         }
     }
-
 }
-

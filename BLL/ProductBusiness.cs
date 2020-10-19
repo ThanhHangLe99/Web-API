@@ -31,6 +31,10 @@ namespace BLL
         {
             return _res.GetDataNew();
         }
+        public List<ProductModel> GetTuongTu(int id)
+        {
+            return _res.GetTuongTu(id);
+        }
         public List<ProductModel> Search(int pageIndex, int pageSize, out long total, string category_id)
         {
             return _res.Search(pageIndex, pageSize, out total, category_id);

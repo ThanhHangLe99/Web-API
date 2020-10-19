@@ -47,6 +47,13 @@ namespace Web_API.Controllers
             return _productBusiness.GetDataNew();
         }
 
+        [Route("get-tuongtu/{id}")]
+        [HttpGet]
+        public IEnumerable<ProductModel> GetTuongTu(int id)
+        {
+            return _productBusiness.GetTuongTu(id);
+        }
+
         [Route("search")]
         [HttpPost]
         public ReponseModel Search([FromBody] Dictionary<string, object> formData)
