@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DAL
 {
-   public class BrandRepository : IBrandRepository
+    public class BrandRepository : IBrandRepository
     {
         private IDatabaseHelper _dbHelper;
         public BrandRepository(IDatabaseHelper dbHelper)

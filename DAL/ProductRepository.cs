@@ -127,5 +127,25 @@ namespace DAL
                 throw ex;
             }
         }
+        public List<ProductModel> Search1(int pageIndex, int pageSize, out long total, string brand_id)
+        {
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_brand_search",
+                    "@page_index", pageIndex,
+                    "@page_size", pageSize,
+                    "@brand_id", brand_id);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<ProductModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -85,5 +85,29 @@ namespace Web_API.Controllers
             return response;
         }
 
+        [Route("search1")]
+        [HttpPost]
+        public ReponseModel Search1([FromBody] Dictionary<string, object> formData)
+        {
+            var response = new ReponseModel();
+            try
+            {
+                var page = int.Parse(formData["page"].ToString());
+                var pageSize = int.Parse(formData["pageSize"].ToString());
+                string brand_id = "";
+                if (formData.Keys.Contains("brand_id") && !string.IsNullOrEmpty(Convert.ToString(formData["brand_id"]))) { brand_id = Convert.ToString(formData["brand_id"]); }
+                long total = 0;
+                var data = _productBusiness.Search1(page, pageSize, out total, brand_id);
+                response.TotalItems = total;
+                response.Data = data;
+                response.Page = page;
+                response.PageSize = pageSize;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return response;
+        }
     }
 }
