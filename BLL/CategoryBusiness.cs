@@ -4,11 +4,10 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BLL
 {
-  public  class CategoryBusiness : ICategoryBusiness
+    public partial class CategoryBusiness : ICategoryBusiness
     {
         private ICategoryRepository _res;
         public CategoryBusiness(ICategoryRepository CategoryRes)
@@ -19,7 +18,7 @@ namespace BLL
         public List<CategoryModel> GetData()
         {
             var allCategory = _res.GetData();
-            var lstParent = allCategory.Where(ds => ds.parent_category_id == null).OrderBy(s => s.seq_mum).ToList();
+            var lstParent = allCategory.Where(ds => ds.parent_category_id == null).OrderBy(s => s.category_id).ToList();
             foreach (var item in lstParent)
             {
                 item.children = GetHiearchyList(allCategory, item);
@@ -39,5 +38,27 @@ namespace BLL
             }
             return lstChilds.OrderBy(s => s.category_id).ToList();
         }
+
+        public bool Delete(string id)
+        {
+            return _res.Delete(id);
+        }
+        public CategoryModel GetDatabyID(string id)
+        {
+            return _res.GetDatabyID(id);
+        }
+        public bool Create(CategoryModel model)
+        {
+            return _res.Create(model);
+        }
+        public bool Update(CategoryModel model)
+        {
+            return _res.Update(model);
+        }
+        public List<CategoryModel> Search(int pageIndex, int pageSize, out long total, string category_name)
+        {
+            return _res.Search(pageIndex, pageSize, out total, category_name);
+        }
+
     }
 }

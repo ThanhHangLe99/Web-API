@@ -18,7 +18,7 @@ namespace BLL
         {
             return _res.Create(model);
         }
-        public ProductModel GetDatabyID(string id)
+        public ProductModel GetDatabyID(int id)
         {
             return _res.GetDatabyID(id);
         }

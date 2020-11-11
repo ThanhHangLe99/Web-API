@@ -8,7 +8,7 @@ namespace BLL.Interfaces
     public partial interface IProductBusiness
     {
         bool Create(ProductModel model);
-        ProductModel GetDatabyID(string id);
+        ProductModel GetDatabyID(int id);
         List<ProductModel> GetDataAll(int page_index, int page_size, out long total);
         List<ProductModel> GetDataNew();
         List<ProductModel> GetTuongTu(int id);

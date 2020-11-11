@@ -43,7 +43,7 @@ namespace Web_API.Controllers
 
         [Route("get-by-id/{id}")]
         [HttpGet]
-        public ProductModel GetDatabyID(string id)
+        public ProductModel GetDatabyID(int id)
         {
             return _productBusiness.GetDatabyID(id);
         }

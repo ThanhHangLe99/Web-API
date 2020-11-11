@@ -78,6 +78,8 @@ namespace API
             services.AddTransient<IProductBusiness, ProductBusiness>();
             services.AddTransient<IUserBusiness, UserBusiness>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IOrderBusiness, OrderBusiness>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
