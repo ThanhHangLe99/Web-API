@@ -113,7 +113,7 @@ namespace DAL
             total = 0;
             try
             {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_search",
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_by_category",
                     "@page_index", pageIndex,
                     "@page_size", pageSize,
                     "@category_id", category_id);
