@@ -31,6 +31,10 @@ namespace BLL
         {
             return _res.GetDataNew();
         }
+        public List<ProductModel> Getbanchay()
+        {
+            return _res.Getbanchay();
+        }
         public List<ProductModel> GetTuongTu(int id)
         {
             return _res.GetTuongTu(id);

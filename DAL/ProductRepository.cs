@@ -92,6 +92,22 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public List<ProductModel> Getbanchay()
+        {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "banchay");
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<ProductModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<ProductModel> GetTuongTu(int id)
         {
             string msgError = "";
@@ -155,7 +171,7 @@ namespace DAL
             total = 0;
             try
             {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_brand_search",
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_by_brand",
                     "@page_index", pageIndex,
                     "@page_size", pageSize,
                     "@brand_id", brand_id);

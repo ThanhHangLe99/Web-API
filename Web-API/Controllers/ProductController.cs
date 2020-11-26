@@ -67,6 +67,13 @@ namespace Web_API.Controllers
             return _productBusiness.GetDataNew();
         }
 
+        [Route("get-banchay")]
+        [HttpGet]
+        public IEnumerable<ProductModel> Getbanchay()
+        {
+            return _productBusiness.Getbanchay();
+        }
+
         [Route("get-tuongtu/{id}")]
         [HttpGet]
         public IEnumerable<ProductModel> GetTuongTu(int id)
